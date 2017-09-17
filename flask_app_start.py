@@ -1,10 +1,10 @@
-from flask import Flask, jsonify, request, make_response
+from flask import Flask, jsonify, request, make_response, render_template
 import jwt
 import datetime
 from functools import wraps
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./public', static_url_path='')
 app.config['SECRET_KEY'] = 'thisisthesecretkey'
 
 
@@ -26,6 +26,9 @@ def token_required(f):
 
     return decorated
 
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/unprotected')
 def unprotected():

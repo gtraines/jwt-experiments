@@ -1,0 +1,4 @@
+#! /bin/bash
+
+./killport 5000
+python flask_app_start.py
