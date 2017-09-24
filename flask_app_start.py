@@ -26,9 +26,13 @@ def token_required(f):
 
     return decorated
 
-@app.route('/')
-def home():
+@app.route('/', methods=['GET'])
+def get_register():
     return render_template('index.html')
+
+@app.route('/register', methods=['POST'])
+def post_register():
+    return render_template('registration_confirmation.html')
 
 @app.route('/unprotected')
 def unprotected():

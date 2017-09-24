@@ -37,7 +37,9 @@
 
 <!-- CSS =================================================== -->
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}" media="all">
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/uswds.css') }}" media="all">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/print.css') }}" media="print">
+  
   </head>
   
   <body class="page-home">
@@ -153,7 +155,7 @@
 
 
 
-<main id="main-content">
+<main class="main-content" id="main-content">
 	<div class="usa-content">
 		{% block page_content %}
 		{% endblock %}
