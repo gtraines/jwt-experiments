@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, make_response, render_template
+from flask_cors import CORS
 import jwt
 import datetime
 from functools import wraps
@@ -26,13 +27,10 @@ def token_required(f):
 
     return decorated
 
-@app.route('/', methods=['GET'])
-def get_register():
-    return render_template('index.html')
-
 @app.route('/register', methods=['POST'])
 def post_register():
-    return render_template('registration_confirmation.html')
+    
+    return render_template('sign-up/confirmation.html')
 
 @app.route('/unprotected')
 def unprotected():
@@ -60,5 +58,6 @@ def login():
 
 
 if __name__ == '__main__':
+    CORS(app)
     app.run(debug=True)
 
